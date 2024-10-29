@@ -41,10 +41,6 @@ function operatorClickedHandler(el) {
 
   if (operator) return;
 
-  if (clearBtn.classList.contains('error-color')) {
-    clearBtn.classList.remove('error-color');
-  }
-
   operator = el.textContent;
   colorSign = el;
   colorSign.classList.add('sign-color');
@@ -89,3 +85,42 @@ for (const el of listOfNums) {
 for (const el of listOfSigns) {
   el.addEventListener('click', operatorClickedHandler.bind(null, el));
 }
+
+function clearNumbers(calcResult = 0) {
+  firstNum = calcResult;
+  secondNum = null;
+  operator = null;
+  typedFirstNum = '';
+  typedSecondNum = '';
+  calcBtn.disabled = true;
+}
+
+calcBtn.addEventListener('click', () => {
+  if (!operator) return;
+
+  if (secondNum == 0 && operator == '/') {
+    input.value = result(firstNum, secondNum, operator);
+    calcBtn.disabled = true;
+    clearNumbers(secondNum);
+    return;
+  }
+
+  const numResult = Number(result(firstNum, secondNum, operator));
+
+  if (numResult.toString().length > 13) {
+    input.classList.add('input-big-numbers');
+  }
+
+  input.value = numberWithSpaces(numResult);
+  calcResult = numResult;
+  clearNumbers(calcResult);
+  calcBtn.disabled = true;
+});
+
+clearBtn.addEventListener('click', () => {
+  input.value = 0;
+  clearNumbers(input.value);
+  if (input.classList.contains('input-big-numbers')) {
+    input.classList.remove('input-big-numbers');
+  }
+});
