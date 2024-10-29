@@ -118,3 +118,39 @@ button,
 .sign-color:hover {
   background-color: rgb(100, 75, 29);
 }
+
+@media (min-width: 620px) {
+  .container {
+    width: 580px;
+    max-width: none;
+    margin-top: 3rem;
+  }
+  .input-result {
+    height: 140px;
+    font-size: 3.5rem;
+  }
+  .number,
+  .sign {
+    width: 90px;
+    height: 78px;
+    font-size: 2.6rem;
+    transition: all 0.2s;
+    padding-top: 0.4rem;
+  }
+  .calculate-btn,
+  .clear-btn {
+    font-size: 1.5rem;
+    margin-top: 0.6rem;
+    transition: all 0.2s;
+  }
+  .calculate-btn {
+    width: 40%;
+    margin-right: 0.5rem;
+  }
+  .clear-btn {
+    width: 30%;
+  }
+  .input-big-numbers {
+    font-size: 2.875rem;
+  }
+}
