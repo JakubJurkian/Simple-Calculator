@@ -41,6 +41,12 @@
   opacity: 1;
 }
 
+.numbers-signs--list {
+  padding: 0;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
 .number,
 .sign {
   width: 30%;
@@ -55,6 +61,10 @@
   cursor: pointer;
 }
 
+.buttons {
+  margin-top: 0.5rem;
+}
+
 .calculate-btn,
 .clear-btn {
   padding: 1.5rem;
@@ -63,8 +73,48 @@
   margin: 0.3rem 0 0 0.1rem;
   color: rgba(0, 0, 0, 0.7);
   background-color: rgb(255, 255, 255);
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   display: inline-block;
   cursor: pointer;
   border: none;
+}
+
+.calculate-btn {
+  width: 56%;
+}
+
+.clear-btn {
+  width: 40%;
+}
+
+.calculate-btn:hover,
+.clear-btn:hover {
+  background-color: rgba(152, 114, 44);
+  color: rgb(255, 255, 255);
+}
+
+.number:hover,
+.sign:hover {
+  color: rgba(245, 245, 245);
+  background-color: rgb(152, 114, 44);
+}
+
+.number:active,
+.sign:active,
+.calculate-btn:active,
+.clear-btn:active {
+  transform: scale(0.95);
+}
+
+button,
+.input-result,
+.number,
+.sign {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.sign-color,
+.sign-color:hover {
+  background-color: rgb(100, 75, 29);
 }
