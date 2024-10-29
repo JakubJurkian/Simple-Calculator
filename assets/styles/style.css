@@ -37,7 +37,6 @@
 .input-result[disabled] {
   background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 0.7);
-  -webkit-opacity: 1;
   opacity: 1;
 }
 
@@ -93,6 +92,13 @@
   color: rgb(255, 255, 255);
 }
 
+.calculate-btn:disabled,
+.clear-btn:disabled {
+  background-color: rgb(225, 225, 225);
+  color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
 .number:hover,
 .sign:hover {
   color: rgba(245, 245, 245);
@@ -103,7 +109,7 @@
 .sign:active,
 .calculate-btn:active,
 .clear-btn:active {
-  transform: scale(0.95);
+  animation: press 0.2s 1 linear;
 }
 
 button,
@@ -119,8 +125,29 @@ button,
   background-color: rgb(100, 75, 29);
 }
 
+.error-color {
+  color: rgb(255, 255, 255);
+  background-color: red;
+}
+.error-color:hover {
+  color: rgb(250, 250, 250);
+  background-color: hsl(0, 100%, 44%);
+}
+
 .input-big-numbers {
   font-size: 1.5rem;
+}
+
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 620px) {

@@ -41,6 +41,10 @@ function operatorClickedHandler(el) {
 
   if (operator) return;
 
+  if (clearBtn.classList.contains('error-color')) {
+    clearBtn.classList.remove('error-color');
+  }
+
   operator = el.textContent;
   colorSign = el;
   colorSign.classList.add('sign-color');
@@ -59,6 +63,10 @@ function numClickedHandler(el) {
     // console.log(`sec num - ${secondNum}`);
     calcBtn.disabled = false;
     return;
+  }
+
+  if (clearBtn.classList.contains('error-color')) {
+    clearBtn.classList.remove('error-color');
   }
 
   typedFirstNum += el.textContent;
@@ -93,6 +101,7 @@ function clearNumbers(calcResult = 0) {
   typedFirstNum = '';
   typedSecondNum = '';
   calcBtn.disabled = true;
+  if (colorSign) colorSign.classList.remove('sign-color');
 }
 
 calcBtn.addEventListener('click', () => {
@@ -100,6 +109,7 @@ calcBtn.addEventListener('click', () => {
 
   if (secondNum == 0 && operator == '/') {
     input.value = result(firstNum, secondNum, operator);
+    clearBtn.classList.add('error-color');
     calcBtn.disabled = true;
     clearNumbers(secondNum);
     return;
@@ -120,6 +130,9 @@ calcBtn.addEventListener('click', () => {
 clearBtn.addEventListener('click', () => {
   input.value = 0;
   clearNumbers(input.value);
+  if (clearBtn.classList.contains('error-color')) {
+    clearBtn.classList.remove('error-color');
+  }
   if (input.classList.contains('input-big-numbers')) {
     input.classList.remove('input-big-numbers');
   }
