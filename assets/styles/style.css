@@ -119,6 +119,10 @@ button,
   background-color: rgb(100, 75, 29);
 }
 
+.input-big-numbers {
+  font-size: 1.5rem;
+}
+
 @media (min-width: 620px) {
   .container {
     width: 580px;
