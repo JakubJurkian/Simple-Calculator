@@ -1,4 +1,4 @@
-# simple-calculator
+# Simple-Calculator
 For the purpose of practicing, I am using three fundamental web technologies to create a simple calculator app.
 
 ## ![My Skills](https://skillicons.dev/icons?i=html) HTML:
